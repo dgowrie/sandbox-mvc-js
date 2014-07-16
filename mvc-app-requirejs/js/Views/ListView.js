@@ -13,6 +13,9 @@ define(function () {
 
 		var users = parameters.users;
 
+		// HTML
+		// @NOTE: Using plain HTML in a JavaScript file like this is not an ideal solution,
+		// because it’s very hard to maintain. You should instead consider templating. 
 		var html = '<ul>';
 		for (var i = 0, len = users.length; i < len; i++) {
 			html += '<li>' + users[i].name + '</li>';
