@@ -2,12 +2,35 @@
 
 /*
  * Main behavior of the AddController
+ * @declares dependency: AddView
+ * @declares dependency: User.js model
  */
- define(['Views/AddView'], function (AddView) {
+ define(['Views/AddView', 'Models/User'], function (AddView, User) {
 
  	// call the AddView render method
  	function start() {
  		AddView.render();
+ 		bindEvents();
+ 	}
+
+ 	// add an event listener for clicks on the #add button
+ 	function bindEvents() {
+ 		var addBtn = document.getElementById('add');
+ 		addBtn.addEventListener('click', addUser, false);
+ 	}
+
+ 	function addUser() {
+ 		var users = JSON.parse(localStorage.users);
+ 		var userName = document.getElementById('user-name').value;
+
+ 		// push new user to array, put updated users back to local storage
+ 		users.push(new User(userName));
+ 		localStorage.users = JSON.stringify(users);
+
+ 		// require the ListController to execute it's start method, to see results
+ 		require(['Controllers/ListController'], function (ListController) {
+ 			ListController.start();
+ 		});
  	}
 
  	return {
