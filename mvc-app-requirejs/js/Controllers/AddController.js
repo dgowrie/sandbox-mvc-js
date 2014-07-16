@@ -14,6 +14,8 @@
  	}
 
  	// add an event listener for clicks on the #add button
+ 	// @NOTE: The best way to go would be having event listeners in the view, which would call business logic methods located in the controller or in a new dedicated events module.
+
  	function bindEvents() {
  		var addBtn = document.getElementById('add');
  		addBtn.addEventListener('click', addUser, false);
