@@ -9,10 +9,9 @@ require(['MyMath'], function(MyMath){
 /*
  * Create set of users 
  * @declares dependency: User.js model
- * @declares dependency: ListController
- * @declares dependency: AddController
+ * @declares dependency: Routes
  */
-require(['Models/User', 'Controllers/ListController', 'Controllers/AddController'], function(User, ListController, AddController){
+require(['Models/User', 'Router'], function(User, Router){
 	 
 	// manually create a set of users
 	// @NOTE: this could be done in a for loop interation, passing in data as the User args
@@ -30,8 +29,13 @@ require(['Models/User', 'Controllers/ListController', 'Controllers/AddController
 
 	// Call ListController.start to run ListController module
 	// @Note: For the moment, we can only manually declare the controller we want to run since we don’t have any routing system yet.
-	ListController.start();
+	// ListController.start();
 
 	// Call AddController.start
-	AddController.start();
+	// AddController.start();
+
+	// Using the routing system
+	// No longer need the manual calls / dependencies of ListController and AddController
+	Router.startRouting();
+
 });

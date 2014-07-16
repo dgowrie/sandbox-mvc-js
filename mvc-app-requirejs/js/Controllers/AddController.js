@@ -30,9 +30,13 @@
  		localStorage.users = JSON.stringify(users);
 
  		// require the ListController to execute it's start method, to see results
- 		require(['Controllers/ListController'], function (ListController) {
+/* 		require(['Controllers/ListController'], function (ListController) {
  			ListController.start();
- 		});
+ 		});*/
+
+		// No longer need to manually load the ListController, instead use the Routing system
+		window.location.hash = '#list';
+
  	}
 
  	return {
