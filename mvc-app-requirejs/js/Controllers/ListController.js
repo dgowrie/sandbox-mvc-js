@@ -2,6 +2,7 @@
 
 /*
  * Main behavior of the ListController
+ * @declares dependency: ListView
  */
 define(['Views/ListView'], function (ListView) {
 
